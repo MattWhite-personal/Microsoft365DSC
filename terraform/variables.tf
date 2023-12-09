@@ -49,3 +49,9 @@ variable "keyvault-admin" {
   type = string
   description = "Admin user format"
 }
+
+variable "graph-permissions" {
+  type = list(string)
+  description = "List of strings of EntraID roles to add to the M365 DSC App Registration"
+  
+}

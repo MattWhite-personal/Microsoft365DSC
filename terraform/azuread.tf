@@ -8,13 +8,7 @@ data "azuread_domains" "default_domain" {
   only_default = true
 }
 
-resource "azurerm_key_vault_secret" "M365-DSC-ADminPass" {
-  for_each     = toset(local.tenants)
-  name         = "${each.value}-adminpass"
-  key_vault_id = azurerm_key_vault.dsc-keyvault.id
-  value        = var.dsc_admin_password
 
-}
 
 
 resource "azuread_user" "M365-DSC-AdminUser" {
