@@ -44,3 +44,8 @@ variable "dsc_admin_password" {
   description = "password for m365dscadmin user"
   sensitive = true
 }
+
+variable "keyvault-admin" {
+  type = string
+  description = "Admin user format"
+}

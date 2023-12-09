@@ -51,6 +51,6 @@ locals {
   tenants = ["thewhitefamily", "objectatelier", "theweaversmiths"]
 }
 
-data "azuread_user" "matt" {
-    user_principal_name = "matt@matthewjwhite.co.uk"
+data "azuread_user" "kv-admin" {
+    user_principal_name = var.keyvault-admin
 }

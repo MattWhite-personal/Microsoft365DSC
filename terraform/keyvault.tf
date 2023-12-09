@@ -28,7 +28,7 @@ resource "azurerm_key_vault" "dsc-keyvault" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azuread_user.matt.object_id
+    object_id = data.azuread_user.kv-admin.object_id
 
     key_permissions = [
       "Get", "Create", "List", "Update"
