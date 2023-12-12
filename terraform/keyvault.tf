@@ -3,6 +3,7 @@ resource "azurerm_key_vault" "dsc-keyvault" {
   location                    = azurerm_resource_group.m365dsc.location
   resource_group_name         = azurerm_resource_group.m365dsc.name
   enabled_for_disk_encryption = true
+  enabled_for_deployment      = true
   tenant_id                   = data.azurerm_client_config.current.tenant_id
   soft_delete_retention_days  = 7
   purge_protection_enabled    = false
@@ -111,7 +112,7 @@ resource "azurerm_key_vault_certificate" "DSCCertificate" {
 }
 
 resource "azurerm_key_vault_certificate" "tenant-certificate" {
-  for_each     = toset(local.tenants)
+  for_each     = toset(var.tenant-names)
   name         = each.value
   key_vault_id = azurerm_key_vault.dsc-keyvault.id
 
@@ -163,7 +164,7 @@ resource "azurerm_key_vault_certificate" "tenant-certificate" {
 }
 
 resource "azurerm_key_vault_secret" "M365-DSC-ADminPass" {
-  for_each     = toset(local.tenants)
+  for_each     = toset(var.tenant-names)
   name         = "${each.value}-adminpass"
   key_vault_id = azurerm_key_vault.dsc-keyvault.id
   value        = var.dsc_admin_password
