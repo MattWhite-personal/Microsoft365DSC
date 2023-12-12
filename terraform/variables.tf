@@ -52,6 +52,42 @@ variable "keyvault-admin" {
 
 variable "graph-permissions" {
   type = list(string)
-  description = "List of strings of EntraID roles to add to the M365 DSC App Registration"
-  
+  description = "List of strings of EntraID roles to add to the M365 DSC App Registration" 
+}
+
+variable "tenants" {
+  type = list(object({
+    tenant-name = string
+    dsc-admin-username = string
+    dsc-admin-password = string
+    graph-permissions = list(string)
+  }))
+}
+
+variable "azdo_url" {
+  type = string
+  description = "URL of the AzureDevOps Organisation"
+}
+
+variable "azdo_token" {
+  type = string
+  sensitive = true
+  description = "PAT token to register the Runner"
+}
+
+variable "azdo_pool" {
+  type = string
+  description = "Pool to add the Self-Hosted Pipline agent to"
+}
+
+variable "azdo_svcuser" {
+  type = string
+  description = "username for service account"
+  default = "svcAzureDevOps"
+}
+
+variable "azdo_svcpass" {
+  type = string
+  description = "password for service account"
+  sensitive = true
 }
