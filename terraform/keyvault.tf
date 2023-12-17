@@ -112,8 +112,8 @@ resource "azurerm_key_vault_certificate" "DSCCertificate" {
 }
 
 resource "azurerm_key_vault_certificate" "tenant-certificate" {
-  for_each     = toset(var.tenant-names)
-  name         = each.value
+  for_each     = { for t in var.tenants : t.tenant-name => t }
+  name         = each.key
   key_vault_id = azurerm_key_vault.dsc-keyvault.id
 
   certificate_policy {
@@ -153,20 +153,16 @@ resource "azurerm_key_vault_certificate" "tenant-certificate" {
         "keyEncipherment"
       ]
 
-      #subject_alternative_names {
-      #  dns_names = ["DSCNode Document Encryption"]
-      #}
-
-      subject            = "CN = ${each.value}"
+      subject            = "CN = ${each.key}"
       validity_in_months = 12
     }
   }
 }
 
 resource "azurerm_key_vault_secret" "M365-DSC-ADminPass" {
-  for_each     = toset(var.tenant-names)
-  name         = "${each.value}-adminpass"
+  for_each     = { for t in var.tenants : t.tenant-name => t }
+  name         = "${each.key}-adminpass"
   key_vault_id = azurerm_key_vault.dsc-keyvault.id
-  value        = var.dsc_admin_password
+  value        = each.value.dsc-admin-password
 
 }
