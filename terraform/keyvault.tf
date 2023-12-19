@@ -10,11 +10,19 @@ resource "azurerm_key_vault" "dsc-keyvault" {
 
   sku_name = "standard"
 
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_client_config.current.object_id
+  network_acls {
+    bypass = "AzureServices"
+    default_action = "Deny"
+    ip_rules = ["${local.ip-address}/32"]
+  }
+}
 
-    key_permissions = [
+resource "azurerm_key_vault_access_policy" "terraform" {
+  key_vault_id = azurerm_key_vault.dsc-keyvault.id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = data.azurerm_client_config.current.object_id
+
+  key_permissions = [
       "Get", "Create", "List", "Update"
     ]
 
@@ -25,9 +33,10 @@ resource "azurerm_key_vault" "dsc-keyvault" {
     certificate_permissions = [
       "Get", "Create", "Update", "List"
     ]
-  }
+}
 
-  access_policy {
+resource "azurerm_key_vault_access_policy" "admin-user" {
+    key_vault_id = azurerm_key_vault.dsc-keyvault.id
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = data.azuread_user.kv-admin.object_id
 
@@ -43,7 +52,20 @@ resource "azurerm_key_vault" "dsc-keyvault" {
       "Get", "Create", "Update", "List"
     ]
   }
-}
+
+  resource "azurerm_key_vault_access_policy" "dsc-runner" {
+    key_vault_id = azurerm_key_vault.dsc-keyvault.id
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = azurerm_windows_virtual_machine.dsc-runner.identity[0].principal_id
+
+    secret_permissions = [
+      "Get", "List"
+    ]
+    certificate_permissions = [
+      "Get", "List"
+    ]
+  }
+
 
 resource "azurerm_private_endpoint" "keyvault" {
   name                = "pe-${azurerm_key_vault.dsc-keyvault.name}"
