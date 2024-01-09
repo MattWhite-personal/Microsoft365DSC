@@ -9,67 +9,67 @@
     )
     NonNodeData = @{
         Environment    = @{
-            Name             = 'Production'
-            ShortName        = 'PRD'
-            TenantId         = '<tenantURL>'
-            OrganizationName = '<tenantURL>'
+            Name             = 'The White Family'
+            ShortName        = 'WF'
+            TenantId         = '${dsc-tenantname}.onmicrosoft.com'
+            OrganizationName = '${dsc-tenantname}.onmicrosoft.com'
         }
         Accounts       = @(
             @{
                 Workload = 'Exchange'
-                Account  = '<M365AdminAccount>'
+                Account  = '${dsc-admin-user}'
             }
             @{
                 Workload = 'Office365'
-                Account  = '<M365AdminAccount>'
+                Account  = '${dsc-admin-user}'
             }
             @{
                 Workload = 'PowerPlatform'
-                Account  = '<M365AdminAccount>'
+                Account  = '${dsc-admin-user}'
             }
             @{
                 Workload = 'SecurityCompliance'
-                Account  = '<M365AdminAccount>'
+                Account  = '${dsc-admin-user}'
             }
             @{
                 Workload = 'SharePoint'
-                Account  = '<M365AdminAccount>'
+                Account  = '${dsc-admin-user}'
             }
             @{
                 Workload = 'Teams'
-                Account  = '<M365AdminAccount>'
+                Account  = '${dsc-admin-user}'
             }
         )
         AppCredentials = @(
             @{
                 Workload       = 'Exchange'
-                ApplicationId  = '<appid>'
-                CertThumbprint = '<certthumb>'
+                ApplicationId  = '${dsc-app-id}'
+                CertThumbprint = '${dsc-cert-thumb}'
             }
             @{
                 Workload       = 'Office365'
-                ApplicationId  = '<appid>'
-                CertThumbprint = '<certthumb>'
+                ApplicationId  = '${dsc-app-id}'
+                CertThumbprint = '${dsc-cert-thumb}'
             }
             @{
                 Workload       = 'PowerPlatform'
-                ApplicationId  = '<appid>'
-                CertThumbprint = '<certthumb>'
+                ApplicationId  = '${dsc-app-id}'
+                CertThumbprint = '${dsc-cert-thumb}'
             }
             @{
                 Workload       = 'SecurityCompliance'
-                ApplicationId  = '<appid>'
-                CertThumbprint = '<certthumb>'
+                ApplicationId  = '${dsc-app-id}'
+                CertThumbprint = '${dsc-cert-thumb}'
             }
             @{
                 Workload       = 'SharePoint'
-                ApplicationId  = '<appid>'
-                CertThumbprint = '<certthumb>'
+                ApplicationId  = '${dsc-app-id}'
+                CertThumbprint = '${dsc-cert-thumb}'
             }
             @{
                 Workload       = 'Teams'
-                ApplicationId  = '<appid>'
-                CertThumbprint = '<certthumb>'
+                ApplicationId  = '${dsc-app-id}'
+                CertThumbprint = '${dsc-cert-thumb}'
             }
         )
         Exchange       = @{
@@ -95,7 +95,7 @@
             )
             AcceptedDomains             = @(
                 @{
-                    Identity        = '<tenantURL>'
+                    Identity        = '${dsc-tenantname}.onmicrosoft.com'
                     DomainType      = 'Authoritative'
                     MatchSubDomains = $false
                     OutboundOnly    = $false
@@ -104,7 +104,7 @@
             )
             DKIM                        = @(
                 @{
-                    Identity               = '<tenantURL>'
+                    Identity               = '${dsc-tenantname}.onmicrosoft.com'
                     Enabled                = $true
                     AdminDisplayName       = ''
                     BodyCanonicalization   = 'Relaxed'

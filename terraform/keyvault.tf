@@ -188,3 +188,9 @@ resource "azurerm_key_vault_secret" "M365-DSC-ADminPass" {
   value        = each.value.dsc-admin-password
 
 }
+
+resource "local_file" "DSCCertificate" {
+  filename = "../DSC/DSCCertificate.cer"
+  content = "-----BEGIN CERTIFICATE-----${azurerm_key_vault_certificate.DSCCertificate.certificate_data_base64}-----END CERTIFICATE-----"
+  
+}
