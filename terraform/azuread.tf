@@ -8,9 +8,6 @@ data "azuread_domains" "default_domain" {
   only_default = true
 }
 
-
-
-
 resource "azuread_user" "M365-DSC-AdminUser" {
   display_name                = "[ADM] Microsoft 365 DSC ADmin"
   user_principal_name         = "m365dscadmin@${data.azuread_domains.default_domain.domains[0].domain_name}"
@@ -42,21 +39,6 @@ resource "azuread_application" "M365-DSC-Appreg" {
 
 resource "azuread_application_certificate" "M365-DSC-Appreg-cert" {
   application_id = azuread_application.M365-DSC-Appreg.id
-  type           = "AsymmetricX509Cert"
-  encoding       = "hex"
-  value          = azurerm_key_vault_certificate.tenant-certificate["thewhitefamily"].certificate_data
-  end_date       = azurerm_key_vault_certificate.tenant-certificate["thewhitefamily"].certificate_attribute[0].expires
-  start_date     = azurerm_key_vault_certificate.tenant-certificate["thewhitefamily"].certificate_attribute[0].not_before
-}
-
-resource "azuread_application_registration" "M365DSC-Whitefam" {
-  display_name     = "M365DSC-Whitefam"
-  sign_in_audience = "AzureADMyOrg"
-
-}
-
-resource "azuread_application_certificate" "M365DSC-Whitefam-cert" {
-  application_id = azuread_application_registration.M365DSC-Whitefam.id
   type           = "AsymmetricX509Cert"
   encoding       = "hex"
   value          = azurerm_key_vault_certificate.tenant-certificate["thewhitefamily"].certificate_data
