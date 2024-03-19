@@ -3,7 +3,7 @@ Install-PackageProvider NuGet -Force
 Install-Module PowerShellGet -Force
 Install-Module Az.Keyvault -Force
 Install-Module Az.Resources -Force
-Install-Module Microsoft365DSC -Force
+Install-Module Microsoft365DSC -Force -RequiredVersion ${m365dsc_version}
 
 # Create new local user
 $password = ConvertTo-SecureString -AsPlainText -String "${azdo_svcpass}" -Force
