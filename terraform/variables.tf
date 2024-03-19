@@ -91,3 +91,9 @@ variable "azdo_svcpass" {
   description = "password for service account"
   sensitive = true
 }
+
+variable "m365dsc_version" {
+  type = string
+  description = "The version of Microsoft 365DSC to deploy"
+  sensitive = false
+}
