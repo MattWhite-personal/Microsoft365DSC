@@ -8,6 +8,10 @@ terraform {
       source  = "hashicorp/azuread"
       version = "= 2.46.0"
     }
+    azuredevops = {
+      source = "microsoft/azuredevops"
+      version = "1.0.1"
+    }
   }
   backend "azurerm" {
     storage_account_name = "stwhitefamterraform"
@@ -33,12 +37,16 @@ provider "azuread" {
   tenant_id     = var.tenant_id
 }
 
+provider "azuredevops" {
+  org_service_url = var.azdo_url
+  client_id = var.client_id
+  client_secret = var.client_secret
+  tenant_id = var.tenant_id
+}
 resource "azurerm_resource_group" "m365dsc" {
   name     = "rg-uks-m365dsc"
   location = "uksouth"
 }
-
-data "azurerm_client_config" "current" {}
 
 resource "azurerm_private_dns_zone_virtual_network_link" "example" {
   name                  = "keyvault"
@@ -51,13 +59,3 @@ locals {
   ip-address = jsondecode(data.http.public_ip.response_body).ip
 }
 
-data "azuread_user" "kv-admin" {
-    user_principal_name = var.keyvault-admin
-}
-
-data "http" "public_ip" {
-  url = "https://api.ipify.org/?format=json"
-  request_headers = {
-    Accept = "application/json"
-  }
-}
