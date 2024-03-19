@@ -97,3 +97,20 @@ variable "m365dsc_version" {
   description = "The version of Microsoft 365DSC to deploy"
   sensitive = false
 }
+
+variable "github_pat" {
+  type = string
+  description = "PAT token to access Github repository in AzureDevops"
+  sensitive = true
+}
+variable "github_org" {
+  type = string
+  description = "Github organisation that hosts the repo for the build and deploy pipelines"
+  sensitive = false
+}
+
+variable "github_repo" {
+  type = string
+  description = "repository within the github organisation that contains the relevant code"
+  sensitive = false
+}
