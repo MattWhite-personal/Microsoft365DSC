@@ -10,66 +10,66 @@
     NonNodeData = @{
         Environment    = @{
             Name             = 'The White Family'
-            ShortName        = 'WF'
+            ShortName        = 'whitefam'
             TenantId         = 'thewhitefamily.onmicrosoft.com'
             OrganizationName = 'thewhitefamily.onmicrosoft.com'
         }
         Accounts       = @(
             @{
                 Workload = 'Exchange'
-                Account  = '<M365AdminAccount>'
+                Account  = 'm365dscadmin@thewhitefamily.onmicrosoft.com'
             }
             @{
                 Workload = 'Office365'
-                Account  = '<M365AdminAccount>'
+                Account  = 'm365dscadmin@thewhitefamily.onmicrosoft.com'
             }
             @{
                 Workload = 'PowerPlatform'
-                Account  = '<M365AdminAccount>'
+                Account  = 'm365dscadmin@thewhitefamily.onmicrosoft.com'
             }
             @{
                 Workload = 'SecurityCompliance'
-                Account  = '<M365AdminAccount>'
+                Account  = 'm365dscadmin@thewhitefamily.onmicrosoft.com'
             }
             @{
                 Workload = 'SharePoint'
-                Account  = '<M365AdminAccount>'
+                Account  = 'm365dscadmin@thewhitefamily.onmicrosoft.com'
             }
             @{
                 Workload = 'Teams'
-                Account  = '<M365AdminAccount>'
+                Account  = 'm365dscadmin@thewhitefamily.onmicrosoft.com'
             }
         )
         AppCredentials = @(
             @{
                 Workload       = 'Exchange'
-                ApplicationId  = '<appid>'
-                CertThumbprint = '<certthumb>'
+                ApplicationId  = '48e3eb7b-44b8-4ab0-a0ff-82c8cd427131'
+                CertThumbprint = '7E40DD792A9CF519A6F93967476C83D239B44300'
             }
             @{
                 Workload       = 'Office365'
-                ApplicationId  = '<appid>'
-                CertThumbprint = '<certthumb>'
+                ApplicationId  = '48e3eb7b-44b8-4ab0-a0ff-82c8cd427131'
+                CertThumbprint = '7E40DD792A9CF519A6F93967476C83D239B44300'
             }
             @{
                 Workload       = 'PowerPlatform'
-                ApplicationId  = '<appid>'
-                CertThumbprint = '<certthumb>'
+                ApplicationId  = '48e3eb7b-44b8-4ab0-a0ff-82c8cd427131'
+                CertThumbprint = '7E40DD792A9CF519A6F93967476C83D239B44300'
             }
             @{
                 Workload       = 'SecurityCompliance'
-                ApplicationId  = '<appid>'
-                CertThumbprint = '<certthumb>'
+                ApplicationId  = '48e3eb7b-44b8-4ab0-a0ff-82c8cd427131'
+                CertThumbprint = '7E40DD792A9CF519A6F93967476C83D239B44300'
             }
             @{
                 Workload       = 'SharePoint'
-                ApplicationId  = '<appid>'
-                CertThumbprint = '<certthumb>'
+                ApplicationId  = '48e3eb7b-44b8-4ab0-a0ff-82c8cd427131'
+                CertThumbprint = '7E40DD792A9CF519A6F93967476C83D239B44300'
             }
             @{
                 Workload       = 'Teams'
-                ApplicationId  = '<appid>'
-                CertThumbprint = '<certthumb>'
+                ApplicationId  = '48e3eb7b-44b8-4ab0-a0ff-82c8cd427131'
+                CertThumbprint = '7E40DD792A9CF519A6F93967476C83D239B44300'
             }
         )
         Exchange       = @{
