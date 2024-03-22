@@ -19,7 +19,7 @@ stages:
           inputs:
             azureSubscription: azdo-m365dsc-service-endpoint
             ScriptType: 'FilePath'
-            scriptPath: ./build.ps1
+            scriptPath: ./DSC/build.ps1
             azurePowerShellVersion: latestVersion
             pwsh: false
             errorActionPreference: 'stop'
