@@ -159,7 +159,7 @@ foreach ($datafile in $datafiles)
     foreach ($function in $envData.NonNodeData.Accounts)
     {
         Write-Log -Message "Getting password from KeyVault for $($function.Workload)" -Level 4
-        $keyVaultSearchString = "{0}-Cred-{1}" -f $envName, $function.Workload
+        $keyVaultSearchString = "{0}-adminpass" -f $envName
         $secret = Get-AzKeyVaultSecret -VaultName $VaultName -Name $keyVaultSearchString -ErrorAction SilentlyContinue
         if ($null -eq $secret)
         {
