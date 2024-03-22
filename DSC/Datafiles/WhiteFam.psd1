@@ -10,7 +10,7 @@
     NonNodeData = @{
         Environment    = @{
             Name             = 'The White Family'
-            ShortName        = 'whitefam'
+            ShortName        = 'thewhitefamily'
             TenantId         = 'thewhitefamily.onmicrosoft.com'
             OrganizationName = 'thewhitefamily.onmicrosoft.com'
         }
