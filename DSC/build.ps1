@@ -24,7 +24,7 @@ function Write-Log
 $dscScriptName = 'M365Configuration.ps1'
 
 # Azure variables
-$VaultName = '<Your KeyVault>'
+$VaultName = 'kv-uks-whitefam-m365dsc'
 
 ######## START SCRIPT ########
 
