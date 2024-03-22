@@ -17,7 +17,7 @@ stages:
         steps:
         - task: AzurePowerShell@5
           inputs:
-            azureSubscription: KeyVaultConnection
+            azureSubscription: azdo-m365dsc-service-endpoint
             ScriptType: 'FilePath'
             scriptPath: ./build.ps1
             azurePowerShellVersion: latestVersion
