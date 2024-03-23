@@ -29,7 +29,7 @@ stages:
         - task: PublishPipelineArtifact@1
           displayName: 'Publish Artifacts to Pipeline'
           inputs:
-            targetPath: '$(buildFolderName)/DSC'
+            targetPath: '$(buildFolderName)/../DSC/output'
             artifact: $(buildArtifactName)
             publishLocation: 'pipeline'
             parallel: true
