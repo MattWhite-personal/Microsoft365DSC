@@ -165,6 +165,7 @@ Configuration SecurityCompliance
     #endregion
 
     #region Sensitivity Labels
+    <#
     SCSensitivityLabel 'SensitivityLabel_7039522b-ce94-44a0-92fb-0481c418a4e6'
     {
         Name                        = "7039522b-ce94-44a0-92fb-0481c418a4e6"
@@ -270,4 +271,5 @@ Configuration SecurityCompliance
         Credential                         = $Credential
     }
     #endregion
+    #>
 }
