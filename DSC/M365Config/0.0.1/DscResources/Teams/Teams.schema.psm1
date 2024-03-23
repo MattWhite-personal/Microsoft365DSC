@@ -143,7 +143,7 @@ Configuration Teams
     #endregion
 
     #region Meeting Policies
-    foreach ($MeetingPolicy in $ConfigurationData.NonNodeData.Teams.MeetingPolicies)
+    <#foreach ($MeetingPolicy in $ConfigurationData.NonNodeData.Teams.MeetingPolicies)
     {
         TeamsMeetingPolicy "MeetingPolicy_$($MeetingPolicy.Identity)"
         {
@@ -192,4 +192,5 @@ Configuration Teams
         }
     }
     #endregion
+    #>
 }
