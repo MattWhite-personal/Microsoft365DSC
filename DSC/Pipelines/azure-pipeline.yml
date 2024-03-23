@@ -8,7 +8,8 @@ variables:
   buildArtifactName: MOFFiles
 
 pool: 
-  vmImage: windows-latest
+  name: 'pool-m365dsc2'
+  #vmImage: windows-latest
 
 stages:
   - stage: Compile
