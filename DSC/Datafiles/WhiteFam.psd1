@@ -95,16 +95,85 @@
             )
             AcceptedDomains             = @(
                 @{
-                    Identity        = '<tenantURL>'
+                    Identity        = 'mattandjen.co.uk'
+                    DomainType      = 'Authoritative'
+                    MatchSubDomains = $false
+                    OutboundOnly    = $false
+                    Ensure          = 'Present'
+                },
+                @{
+                    Identity        = 'thewhitefamily.onmicrosoft.com'
+                    DomainType      = 'Authoritative'
+                    MatchSubDomains = $false
+                    OutboundOnly    = $false
+                    Ensure          = 'Present'
+                },
+                @{
+                    Identity        = 'simonwhitedesign.co.uk'
+                    DomainType      = 'Authoritative'
+                    MatchSubDomains = $false
+                    OutboundOnly    = $false
+                    Ensure          = 'Present'
+                },
+                @{
+                    Identity        = 'matthewjwhite.co.uk'
+                    DomainType      = 'Authoritative'
+                    MatchSubDomains = $false
+                    OutboundOnly    = $false
+                    Ensure          = 'Present'
+                },
+                @{
+                    Identity        = 'tonyandlizwhite.co.uk'
                     DomainType      = 'Authoritative'
                     MatchSubDomains = $false
                     OutboundOnly    = $false
                     Ensure          = 'Present'
                 }
+
             )
             DKIM                        = @(
                 @{
-                    Identity               = '<tenantURL>'
+                    Identity               = 'thewhitefamily.onmicrosoft.com'
+                    Enabled                = $true
+                    AdminDisplayName       = ''
+                    BodyCanonicalization   = 'Relaxed'
+                    HeaderCanonicalization = 'Relaxed'
+                    KeySize                = 1024
+                },
+                @{
+                    Identity               = 'mattandjen.co.uk'
+                    Enabled                = $true
+                    AdminDisplayName       = ''
+                    BodyCanonicalization   = 'Relaxed'
+                    HeaderCanonicalization = 'Relaxed'
+                    KeySize                = 1024
+                },
+                @{
+                    Identity               = 'simonandhanna.co.uk'
+                    Enabled                = $true
+                    AdminDisplayName       = ''
+                    BodyCanonicalization   = 'Relaxed'
+                    HeaderCanonicalization = 'Relaxed'
+                    KeySize                = 1024
+                },
+                @{
+                    Identity               = 'matthewjwhite.co.uk'
+                    Enabled                = $true
+                    AdminDisplayName       = ''
+                    BodyCanonicalization   = 'Relaxed'
+                    HeaderCanonicalization = 'Relaxed'
+                    KeySize                = 1024
+                },
+                @{
+                    Identity               = 'simonwhitedesign.co.uk'
+                    Enabled                = $true
+                    AdminDisplayName       = ''
+                    BodyCanonicalization   = 'Relaxed'
+                    HeaderCanonicalization = 'Relaxed'
+                    KeySize                = 1024
+                },
+                @{
+                    Identity               = 'tonyandlizwhite.co.uk'
                     Enabled                = $true
                     AdminDisplayName       = ''
                     BodyCanonicalization   = 'Relaxed'
